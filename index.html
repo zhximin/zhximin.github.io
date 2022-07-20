@@ -5,51 +5,109 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>斜曦的主页</title>
-	<link rel="stylesheet" href="./css/style.css">
+	<title>Document</title>
 	<link rel="stylesheet" href="./css/normalize.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./font/iconfont.css">
+	<script src="./js/index.js"></script>
 </head>
 
 <body>
-	<div class="content">
-		<img src="./img/wallpaper/斜曦.JPG" alt="">
-		<div class="content_r clearfix">
-			<div class="content_l clearfix">
-				<h1>Hi~ 我是斜曦</h1>
-				<p class="cc">欢迎来到我的主页，一位热爱编程的小渣渣~</p>
-				<p class="cc">爱好:计算机/游戏/篮球/旅游</p>
-				<br>
-				<p class="color_1">When you are alone,you must be kind to yourself</p>
-				<p class="color_1">独来独往的日子里,一定要善待自己</p>
-				<br>
-				<p class="deeppink">知足且上进,温柔且坚定</p>
-				<p class="deeppink">Contented and progressive,gentle and firm</p>
-				<div class="link">
-					<a href="#" class="dodgerblue" target="_blank">官网</a>
-					<a href="./copywriting.html" class="deeppink_1" target="_blank">I<span class="like"> xxx you
-						</span></a>
-					<a href="https://weibo.com/u/3309909655" class="magenta" target="_blank">微博</a>
-					<a href="https://music.163.com/#/user/home?id=538990315" class="orange" target="_blank">网易云音乐</a>
+	<div class="setting_main">
+		<div id="sitenews-wrap" class="container"></div>
+		<div class="setting_inner pagewrapper cl" id="author-page">
+			<div class="yscd avatar">
+				<i class="fa fa-angle-double-right"></i>
+			</div>
+			<div class="yinxsh"></div>
+			<aside class="user-left">
+				<div class="moblie-usermenu-div-us div-click-close" style="right: 0px;">
+					<div class="user-menu-kzdiv">
+						<img src="./img/head portrait.jpg" class="avatar" width="100" height="100">
+						<span class="user_name">斜曦</span>
+						<span class="user_vip_data">VIP用户</span>
+						<span class="user_desc_uption_user">
+							<p>点击这里修改签名...</p>
+							<input class="add-user-desction" type="text" name="user-desction" placeholder="签名信息"
+								autocomplete="off" value="">
+						</span>
+					</div>
+					<div class="user-menu-li">
+						<ul class="userdata-ul cl">
+							<li class="active"><a href="#"><i class="iconfont icon-zhuye"></i>主页</a></li>
+							<li><a href="#"><i class="iconfont icon-xihuan"></i>我的喜欢</a></li>
+							<li><a href="#"><i class="iconfont icon-lishi"></i>浏览历史</a></li>
+							<li><a href="#"><i class="iconfont icon-tixing"></i>我的提醒</a></li>
+							<li><a href="#"><i class="iconfont icon-pengyouquan"></i>朋友圈</a></li>
+							<li><a href="#"><i class="iconfont icon-huiyuan"></i>积分·会员</a></li>
+							<li><a href="#"><i class="iconfont icon-dingdan"></i>我的订单</a></li>
+							<li><a href="#"><i class="iconfont icon-shezhi"></i>设置</a></li>
+							<li><a href='#'><i class="iconfont icon-tuichu"></i>退出登录</a></li>
+						</ul>
+					</div>
+				</div>
+			</aside>
+			<div class="user-right">
+				<div class="user_contentr">
+
+					<!-- Content -->
+					<div class="setting_header">
+						<a class="sh_1">个人中心~</a>
+					</div>
+					<div class="settin">
+						<div class="kz-user-div-box">
+							<div class="user_data_html">
+								<div class="ud_left u_touxian">
+									<img src="./img/head portrait.jpg" class="avatar" width="100" height="100">
+								</div>
+								<div class="ud_left u_text">
+									<p><span class="user_name">斜曦</span><span class="user_vip_data">VIP用户</span></p>
+									<p>WeChat:15112523208</p>
+								</div>
+							</div>
+							<ul class="ud_number cl">
+								<li><i class="iconfont icon-hanbao"></i>作品总数量<em>0</em>篇</li>
+								<li><i class="iconfont icon-kele"></i>投稿总浏览数<em>0</em>次</li>
+								<li><i class="iconfont icon-shutiao"></i>被收藏总数<em>0</em>次</li>
+								<li><i class="iconfont icon-nuomici"></i>投稿总评论数<em>0</em>条</li>
+							</ul>
+						</div>
+
+						<div class="kz-user-div-boxs cl">
+							<div class="ud_left">
+								<div class="user_post_box">
+									<h3>常用资料</h3>
+									<ul class="user_new_post">
+										<li><a href="#">我要跟着你,你去哪儿我都要跟着你,我这辈子都跟定你了。</a></li>
+										<li><a href="#">喜欢你,没有生产日期,也没有保质期。</a></li>
+										<li><a href="#">穿自己喜欢的衣服,和不累的人相处。</a></li>
+										<li><a href="#">今天很好,我喜欢今天。</a></li>
+										<li><a href="#">眼中有光,心里有方向。</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="ud_right">
+								<div class="user_post_box">
+									<h3>我的提醒</h3>
+									<ul class="comment-list-tip-ul user_new_tip">
+										<li style="text-align: center;">暂无提醒消息</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="end-cold-height" style="height: 50px;"></div>
+					</div>
+					<div class="ajax_load_div">
+						<div class="pay-logging"></div>
+					</div>
+					<!-- /.Content -->
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="box">
-		<p>如果你看到了觉得可以就call me</p>
-		<p>如果你觉得不行就假装没看见吧</p>
-	</div>
-	<script>
-		var like = document.querySelector('.like')
-		var box = document.querySelector('.box')
-		like.parentElement.addEventListener('mouseenter', () => {
-			like.textContent = ' like you(白璐炜)'
-			box.style.display = 'block'
-		})
-		like.parentElement.addEventListener('mouseleave', () => {
-			like.textContent = ' xxx '
-			box.style.display = 'none'
-		})
-	</script>
+
+
 </body>
 
 </html>

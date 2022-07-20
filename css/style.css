@@ -1,124 +1,521 @@
-.clearfix:after {
-    content: "";
-    display: block;
-    height: 0;
-    visibility: hidden;
-    clear: both;
-}
-
-.clearfix {
-    *zoom: 1;
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background: url(../img/wallpaper/妖刀姬.jpeg) no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    font-family: "Microsoft Yahei";
+    background: #f0f0f0;
+    margin: 0 auto;
+    font-size: 14px;
+    color: #333;
 }
 
-.content {
-    width: 900px;
-    height: 500px;
-    margin: 200px auto 0 auto;
-    border-radius: 10px;
-    background-color: rgba(236, 236, 236, 0.59);
-    transition: all 1.0s;
-    /*box-shadow: 0px 0px 20px rgba(0,0,0,0.3);*/
+.setting_main {
+    margin-top: 80px;
+    width: auto;
+    margin-bottom: 20px;
 }
 
-.content img {
-    float: left;
-    width: 200px;
-    height: 200px;
-    margin: 150px 0 0 80px;
-    border-radius: 100px;
-
-}
-
-.content:hover {
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.52);
-}
-
-.content_r {
-    float: right;
-    width: 500px;
-    margin: 80px 60px 0 0;
-    /*	background-color: pink;*/
-}
-
-.content_l {
-    float: left;
+.setting_inner {
+    overflow: inherit;
     width: 100%;
-    text-align: center;
+    position: relative;
+    max-width: 1180px;
+    margin: 0 auto;
+    min-height: 110px;
 }
 
-.content_l h5 {
-
-    font-size: 17px;
+.cl {
+    zoom: 1;
 }
 
-.cc {
-    margin-top: 10px;
-    color: #1F2023;
-    font-size: 18px;
-}
-
-.color_1 {
-    color: #4855EC;
-    font-size: 18px;
-}
-
-.deeppink {
-    color: deeppink;
-}
-
-.link {
-    margin-top: 30px;
-}
-
-.link a {
-    display: block;
-    float: left;
-    width: 120px;
-    height: 45px;
-    margin: 5px 5px 0 0;
-    /*	padding: 0 15px;*/
-    color: #fff;
-    line-height: 45px;
-    transition: all 0.8s;
-    /*	background-color: deeppink;*/
-
-}
-
-.box {
-    width: 400px;
-    height: 200px;
-    background-color: red;
-    color: #fff;
-    font-size: 16px;
+.yscd {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -100px 0 0 -200px;
+    top: 60px;
+    left: 0;
+    z-index: 1;
+    color: #fdfdfd;
+    background: #ff6769;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    padding-left: 3px;
+    font-size: 24px;
+    border-radius: 0 10% 10% 0;
     display: none;
 }
 
-.link a:hover {
-    background-color: rgba(0, 201, 243, 0.35);
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
 }
 
-.deeppink_1 {
-    background-color: deeppink;
+.yinxsh {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    padding-top: 45%;
+    text-align: center;
+    color: #fff;
+    top: 0;
+    left: 0;
+    background: rgba(36, 36, 36, 0.6);
+    display: none;
+    z-index: 5;
 }
 
-.dodgerblue {
-    background-color: dodgerblue;
+.user-left {
+    background: #fff;
+    width: 240px;
 }
 
-.magenta {
-    background-color: magenta;
+.user-left {
+    float: left;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-.orange {
-    background-color: orange;
+.user-left .moblie-usermenu-div-us {
+    width: 240px;
+    height: 100%;
+    position: inherit;
+    background: #fff;
+    box-shadow: none;
+    border: solid 1px #e7e7e7;
+    min-height: 720px;
+}
+
+.moblie-usermenu-div-us {
+    z-index: 6;
+}
+
+.user-left .moblie-usermenu-div-us .user-menu-kzdiv {
+    padding-top: 60px;
+    background: #ffffff;
+    position: relative;
+}
+
+.moblie-usermenu-div-us .user-menu-kzdiv {
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #c5c5c5;
+}
+
+.user-left .moblie-usermenu-div-us .user-menu-kzdiv .avatar {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    margin-left: -60px;
+    border: solid 1px #e6e6e6;
+    padding: 8px;
+    background: #fff;
+    width: 120px;
+    height: 120px;
+}
+
+.moblie-usermenu-div-us .user-menu-kzdiv>img {
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.moblie-usermenu-div-us .user-menu-kzdiv>.user_name {
+    display: block;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.moblie-usermenu-div-us .user-menu-kzdiv>.user_vip_data {
+    color: #8e8e8e;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.user_desc_uption_user {
+    text-shadow: 1px 1px 1px #000;
+    color: #fff;
+    font-size: 12px;
+}
+
+.user_desc_uption_user p {
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    padding: 0 5px;
+}
+
+.user_desc_uption_user input {
+    padding: 0 10px;
+    line-height: 30px;
+    height: 30px;
+    border: none;
+    background: none;
+    border-bottom: 1px #f66 solid;
+    display: none;
+    color: #f66;
+    text-shadow: 1px 1px 1px #404040;
+}
+
+input,
+button {
+    outline: none;
+}
+
+input {
+    font-family: "AcFun Symbol", "Helvetica Neue", Helvetica, Arial, "pingfang SC", "Microsoft Yahei", STHeiti, sans-serif;
+}
+
+.user-menu-li .userdata-ul {
+    border: none;
+}
+
+.userdata-ul {
+    padding: 5px 0;
+}
+
+.user-left .user-menu-li .userdata-ul>li {
+    border-bottom: none;
+}
+
+.user-menu-li .userdata-ul>li {
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+}
+
+.userdata-ul li {
+    float: left;
+    list-style-type: none;
+    text-align: left;
+}
+
+.user-menu-li .userdata-ul>li.active a {
+    color: #ff7157;
+}
+
+.user-menu-li .userdata-ul>li>a {
+    display: inline-block;
+    width: 100%;
+    padding-left: 40px;
+    font-size: 16px;
+}
+
+.userdata-ul li a {
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    outline: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #f66;
+    transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+}
+
+.user-right {
+    padding-left: 260px;
+    min-height: 800px;
+}
+
+.user-right {
+    float: right;
+    width: 100%;
+}
+
+.user-right .user_contentr {
+    background: none;
+}
+
+.user-right .user_contentr {
+    width: 100%;
+}
+
+.setting_header {
+    height: 60px;
+    margin-bottom: 1px;
+    background: #fff;
+    padding-left: 20px;
+    border: solid 1px #e7e7e7;
+}
+
+.sh_1 {
+    height: 60px;
+    line-height: 60px;
+    border-right: none;
+    border-bottom: solid 3px #f66;
+    width: auto;
+    color: #f66;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.sh_1 {
+    background: #fff;
+    float: left;
+    cursor: pointer;
+}
+
+.settin {
+    padding: 0;
+    min-height: 565px;
+    position: relative;
+}
+
+.kz-user-div-box {
+    background: #fff;
+    min-height: 200px;
+    padding: 20px;
+    border: solid 1px #e7e7e7;
+}
+
+.user_data_html {
+    height: 60px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.user_data_html .u_touxian {
+    height: 60px;
+    width: 90px;
+    margin-right: 10px;
+    padding-left: 30px;
+}
+
+.user_data_html .u_touxian img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+.user_data_html .u_text {
+    padding-top: 10px;
+    line-height: 25px;
+    font-size: 16px;
+    color: #c1c0c0;
+}
+
+.ud_left {
+    float: left;
+}
+
+.user_data_html .u_text .user_name {
+    color: #666;
+}
+
+.user_data_html .u_text .user_vip_data {
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.kz-user-div-box .ud_number li {
+    list-style-type: none;
+    float: left;
+    width: 50%;
+    padding-left: 60px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+}
+
+.kz-user-div-box .ud_number li i {
+    margin-right: 5px;
+}
+
+.kz-user-div-box .ud_number li em {
+    font-style: initial;
+    font-size: 1.2em;
+    padding: 0 5px;
+    color: #ff7256;
+}
+
+.kz-user-div-boxs {
+    margin-top: 30px;
+}
+
+.kz-user-div-boxs>div.ud_left {
+    padding-right: 10px;
+}
+
+.kz-user-div-boxs>div {
+    width: 50%;
+}
+
+.ud_left {
+    float: left;
+}
+
+.kz-user-div-boxs .user_post_box h3 {
+    font-weight: normal;
+    height: 30px;
+}
+
+.kz-user-div-boxs .user_post_box ul {
+    background: #fff;
+    height: 335px;
+    width: 100%;
+    border: solid 1px #e7e7e7;
+    position: relative;
+    border-bottom: none;
+}
+
+.kz-user-div-boxs .user_post_box ul:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: -2px;
+    width: 30px;
+    height: 3px;
+    background: #f66;
+    left: 15px;
+}
+
+:after,
+:before {
+    box-sizing: border-box;
+}
+
+.user_new_post li {
+    height: 67px;
+    line-height: 67px;
+    font-size: 14px;
+    padding: 0 10px 0 20px;
+    list-style-type: none;
+    border-bottom: solid 1px #e7e7e7;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+.kz-user-div-boxs>div.ud_right {
+    padding-left: 10px;
+}
+
+.kz-user-div-boxs>div {
+    width: 50%;
+}
+
+.ud_right {
+    float: right;
+}
+
+.kz-user-div-boxs ul.user_new_tip {
+    padding: 0 20px;
+    border: solid 1px #e7e7e7;
+}
+
+.kz-user-div-boxs .user_post_box ul {
+    background: #fff;
+    height: 335px;
+    width: 100%;
+    position: relative;
+}
+
+.comment-list-tip-ul li:last-child {
+    border: none;
+}
+
+.comment-list-tip-ul li {
+    list-style-type: none;
+    position: relative;
+    margin: 10px 0;
+    padding: 10px 0;
+    padding-left: 70px;
+    min-height: 90px;
+}
+
+.cl:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.ajax_load_div,
+.weixin_pay_div {
+    display: none;
+    background-color: rgba(0, 0, 0, .46);
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    width: 300px;
+    margin-left: -150px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    z-index: 9999;
+}
+
+
+.user-menu-li .userdata-ul>li>a>i {
+    margin-right: 5px;
+}
+
+.fa-home:before {
+    content: "\f015";
+}
+
+.fa-paint-brush:before {
+    content: "\f1fc";
+}
+
+.fa-heart:before {
+    content: "\f004";
+}
+
+.fa-history:before {
+    content: "\f1da";
+}
+
+.fa-bell:before {
+    content: "\f0f3";
+}
+
+.fa-at:before {
+    content: "\f1fa";
+}
+
+.fa-diamond:before {
+    content: "\f219";
+}
+
+.fa-file-text:before {
+    content: "\f15c";
+}
+
+.fa-gear:before,
+.fa-cog:before {
+    content: "\f013";
 }
