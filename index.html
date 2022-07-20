@@ -34,13 +34,20 @@
 			</div>
 		</div>
 	</div>
+	<div class="box">
+		<p>如果你看到了觉得可以就call me</p>
+		<p>如果你觉得不行就假装没看见吧</p>
+	</div>
 	<script>
 		var like = document.querySelector('.like')
+		var box = document.querySelector('.box')
 		like.parentElement.addEventListener('mouseenter', () => {
-			like.textContent = ' like 白璐炜'
+			like.textContent = ' like you(白璐炜)'
+			box.style.display = 'block'
 		})
 		like.parentElement.addEventListener('mouseleave', () => {
 			like.textContent = ' xxx '
+			box.style.display = 'none'
 		})
 	</script>
 </body>
