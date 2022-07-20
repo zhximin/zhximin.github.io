@@ -1,4 +1,5 @@
-var str = `
+document.addEventListener('DOMContentLoaded', () => {
+    var str = `
 喜欢稳定,不急不忙,也不懒散。//
 在你放弃之前,好好拼一把,只怕心老,不怕路长。//
 从黎明到黄昏,阳光充足,胜过一切的诗。//
@@ -80,6 +81,17 @@ var str = `
 人生过往,会心处不妨停一停。//
 不赶什么浪潮,也不搭什么船,我自己有海。//
 眼中有光,心里有方向。//
-`
-var arr = str.split('//')
-// console.log(arr);
+`;
+    function getDom(str) {
+        return document.querySelector(str)
+    }
+    var arr = str.split('//')
+
+    const userpost = getDom('.user_new_post')
+    for (let i = 0; i < 5; i++) {
+        let suiji = Math.round(Math.random() * arr.length + 0)
+        userpost.innerHTML += `<li><a href="#">${arr[suiji]}</a></li>`
+    }
+
+
+})
