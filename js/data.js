@@ -155,3 +155,10 @@ const str = `喜欢稳定,不急不忙,也不懒散。//
 人生过往,会心处不妨停一停。//
 不赶什么浪潮,也不搭什么船,我自己有海。//
 眼中有光,心里有方向。`;
+
+const user = {
+    user1: 'xiexi',
+    pasw1: '1511',
+    user2: 'winkb',
+    pasw2: 'loveliness'
+}

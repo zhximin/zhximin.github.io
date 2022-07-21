@@ -10,12 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
         acn.href = 'javascript:;'
         let suiji = Math.round(Math.random() * (cnarr.length - 1) + 0);
         do {
-            //每次得到一个下标
             suiji = Math.round(Math.random() * (cnarr.length - 1) + 0);
-            acn.textContent = cnarr[suiji];//将得到的内容的两边的空格去掉然后得到这个值。//李银河 李银河
+            acn.textContent = cnarr[suiji];
         } while (list.includes(suiji))
-        list.push(suiji)//我这里不写这个就死循环了
-        console.log(list);
+        list.push(suiji)
         li.append(acn);
         acn.addEventListener('mouseenter', () => {
             acn.textContent = enarr[suiji]
