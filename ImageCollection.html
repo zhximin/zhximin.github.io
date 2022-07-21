@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- https://codepen.io/rachsmith/pen/wgoNad -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      width: 100%;
+    }
+
+    body {
+      font-size: 40px;
+      font-family: 'Bungee Shade', cursive;
+      color: #222;
+      background: #222;
+      overflow: hidden;
+    }
+
+    .box {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      float: left;
+    }
+
+    .box:hover .border {
+      -webkit-transform: scale(0.94);
+      transform: scale(0.94);
+      -webkit-transition-duration: 140ms;
+      transition-duration: 140ms;
+    }
+
+    .box:hover .text {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -webkit-transition-duration: 140ms;
+      transition-duration: 140ms;
+    }
+
+    .box:hover .image-wrap {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 1;
+      -webkit-transition-duration: 140ms;
+      transition-duration: 140ms;
+    }
+
+    .border,
+    .text,
+    .image {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .image-wrap {
+      position: absolute;
+      width: 130%;
+      height: 130%;
+      left: -15%;
+      top: -15%;
+      -webkit-transform: scale(0.8);
+      transform: scale(0.8);
+      -webkit-transition: 280ms ease-out;
+      transition: 280ms ease-out;
+      pointer-events: none;
+      opacity: 0.74;
+    }
+
+    .border {
+      left: -30px;
+      top: -30px;
+      border: 30px solid #222;
+      box-sizing: content-box;
+      -webkit-transition: 360ms ease-in-out;
+      transition: 360ms ease-in-out;
+    }
+
+    .text {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      opacity: 0;
+      -webkit-transform: translate3d(0, -4%, 0);
+      transform: translate3d(0, -4%, 0);
+      -webkit-transition: 280ms ease-out;
+      transition: 280ms ease-out;
+      text-align: center;
+      color: lightgrey;
+    }
+
+    .image {
+      background-size: cover;
+    }
+
+    /* box sizing */
+    .box {
+      width: 100%;
+      height: 100vw;
+      float: left;
+    }
+
+    @media (min-width: 500px) {
+      .box {
+        width: 50%;
+        height: 50vw;
+      }
+    }
+
+    @media (min-width: 800px) {
+      .box {
+        width: 33.333333%;
+        height: 33.33333vw;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .box {
+        width: 25%;
+        height: 25vw;
+      }
+    }
+
+    /* image backgrounds */
+    .image-0 {
+      background: url(./img/ImageCollection/love1.jpg);
+    }
+
+    .image-1 {
+      background: url(./img/ImageCollection/love2.jpg);
+    }
+
+    .image-2 {
+      background: url(./img/ImageCollection/love3.jpg);
+    }
+
+    .image-3 {
+      background: url(./img/ImageCollection/love4.jpg);
+    }
+
+    .image-4 {
+      background: url(./img/ImageCollection/shanxi.jpg);
+    }
+
+    .image-5 {
+      background: url(./img/ImageCollection/sz.jpg);
+    }
+
+    .image-6 {
+      background: url(./img/ImageCollection/dog1.jpg);
+    }
+
+    .image-7 {
+      background: url(./img/ImageCollection/dog2.jpg);
+    }
+
+    .image-8 {
+      background: url(./img/ImageCollection/dog3.jpg);
+    }
+
+    .image-9 {
+      background: url(./img/ImageCollection/dog4.jpg);
+    }
+
+    .image-10 {
+      background: url(./img/ImageCollection/dog5.jpg);
+    }
+
+    .image-11 {
+      background: url(./img/ImageCollection/Ierland.jpg);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <div class="image-wrap">
+      <div class="image image-0"></div>
+    </div>
+    <div class="border"></div>
+    <div class="text">
+      <span>I'm</span>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="image-wrap">
+      <div class="image image-1"></div>
+    </div>
+    <div class="border"></div>
+    <div class="text">
+      <span>Following</span>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="image-wrap">
+      <div class="image image-2"></div>
+    </div>
+    <div class="border"></div>
+    <div class="text">
+      <span>You</span>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="image-wrap">
+      <div class="image image-3"></div>
+    </div>
+    <div class="border"></div>
+    <div class="text">
+      <span>Now</span>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="image-wrap">
+      <div class="image image-4"></div>
+    </div>
+    <div class="border"></div>
+    <div class="text">
+      <span>Just</span>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="image-wrap">
+      <div class="image image-5"></div>
+    </div>
+    <div class="border"></div>
+    <div class="text">
+      <span>Going</span>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="image-wrap">
+      <div class="image image-6"></div>
+    </div>
+    <div class="border"></div>
+    <div class="text">
+      <span>Follow you</span>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="image-wrap">
+      <div class="image image-7"></div>
+    </div>
+    <div class="border"></div>
+    <div class="text">
+      <span>Everywhere</span>
+    </div>
+  </div>
+
+  <script>
+    var mousePos = {
+      x: -10,
+      y: -10
+    };
+
+    var boxElements = document.getElementsByClassName('box');
+
+    var boxes = [];
+    for (var i = 0; i < boxElements.length; i++) {
+      boxes.push({
+        el: boxElements[i],
+        targetX: 0,
+        targetY: 0,
+        prevX: 0,
+        prevY: 0,
+        x: 0,
+        y: 0,
+        left: boxElements[i].offsetLeft,
+        top: boxElements[i].offsetTop,
+        size: boxElements[i].offsetWidth
+      })
+    }
+
+    function mousemove(e) {
+      mousePos.x = e.pageX;
+      mousePos.y = e.pageY;
+    }
+
+    function updateBox(box) {
+      if (mousePos.x > box.left && mousePos.x < (box.left + box.size) &&
+        mousePos.y > box.top && mousePos.y < (box.top + box.size)) {
+        box.targetX = (box.size / 2 - (mousePos.x - box.left)) * 0.1;
+        box.targetY = (box.size / 2 - (mousePos.y - box.top)) * 0.1;
+      } else {
+        box.targetX = 0;
+        box.targetY = 0;
+      }
+
+      box.x += (box.targetX - box.x) * 0.2;
+      box.y += (box.targetY - box.y) * 0.2;
+
+      if (Math.abs(box.x) < .001) box.x = 0;
+      if (Math.abs(box.y) < .001) box.y = 0;
+
+      if (box.prevX !== box.x && box.prevY !== box.y) {
+        box.el.children[0].children[0].style.transform = 'translate3d(' + box.x + 'px, ' + box.y + 'px, 0)';
+      }
+
+      box.prevX = box.x;
+      box.prevY = box.y;
+    }
+
+    function loop() {
+      for (var i = 0, l = boxes.length; i < l; i++) {
+        updateBox(boxes[i]);
+      }
+      requestAnimationFrame(loop);
+    }
+
+    function resize() {
+      for (var i = 0; i < boxes.length; i++) {
+        boxes[i].left = boxes[i].el.offsetLeft;
+        boxes[i].top = boxes[i].el.offsetTop;
+        boxes[i].size = boxes[i].el.offsetWidth;
+      }
+    }
+
+    document.addEventListener('mousemove', mousemove);
+    window.addEventListener('resize', resize);
+    loop();
+  </script>
+</body>
+
+</html>

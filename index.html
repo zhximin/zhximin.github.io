@@ -196,9 +196,12 @@
 		</form>
 	</div>
 	<script>
-		var btn = document.querySelector('.btn')
-		var us = document.querySelector('#username')
-		var pasw = document.querySelector('#password')
+		const btn = document.querySelector('.btn')
+		const us = document.querySelector('#username')
+		const pasw = document.querySelector('#password')
+		for (var k in user) {
+			console.log(user[k]);
+		}
 		btn.addEventListener('click', (e) => {
 			if ((us.value == user.user1 || us.value == user.user2) && (pasw.value == user.pasw1 || pasw.value == user.pasw2)) {
 				location.href = './xiexi.html'

@@ -1,8 +1,9 @@
 @font-face {
-  font-family: "iconfont"; /* Project id 3536357 */
+  font-family: "iconfont";
+  /* Project id 3536357 */
   src: url('iconfont.woff2?t=1658320598148') format('woff2'),
-       url('iconfont.woff?t=1658320598148') format('woff'),
-       url('iconfont.ttf?t=1658320598148') format('truetype');
+    url('iconfont.woff?t=1658320598148') format('woff'),
+    url('iconfont.ttf?t=1658320598148') format('truetype');
 }
 
 .iconfont {
@@ -64,4 +65,3 @@
 .icon-pengyouquan:before {
   content: "\e61e";
 }
-

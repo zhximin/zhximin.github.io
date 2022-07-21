@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     let cnarr = str.split('//')
     let enarr = eng.split('//')
+
     const userpost = getDom('.user_new_post')
 
     var list = [];
@@ -23,6 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         userpost.appendChild(li)
     }
-
-
+    const calendar = getDom('.calendar')
+    local(calendar, 'click', '../calendar/calendar.html')
+    const clock = getDom('.clock')
+    local(clock, 'click', '../clock/clock.html')
+    const ImageCollection = getDom('.ImageCollection')
+    local(ImageCollection, 'click', '../ImageCollection.html')
 })
