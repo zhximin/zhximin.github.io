@@ -159,6 +159,4 @@ const str = `喜欢稳定,不急不忙,也不懒散。//
 const user = {
     user1: 'xiexi',
     pasw1: '1511',
-    user2: 'winkb',
-    pasw2: 'loveliness'
 }
