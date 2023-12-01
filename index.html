@@ -1,49 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<script src="./js/data.js"></script>
-	<link rel="stylesheet" href="./css/login.css">
-	<link rel="stylesheet" href="./css/normalize.css">
-</head>
-
-<body>
-	<div class="loginBox">
-		<h2>login</h2>
-		<form action="#" method="post">
-			<div class="item">
-				<input type="text" id="username" required>
-				<label for="username">userName</label>
-			</div>
-			<div class="item">
-				<input type="password" id="password" required>
-				<label for="password">password</label>
-			</div>
-			<button class="btn">submit
-				<span></span>
-				<span></span>
-				<span></span>
-				<span></span>
-			</button>
-		</form>
-	</div>
-	<script>
-		const btn = document.querySelector('.btn')
-		const us = document.querySelector('#username')
-		const pasw = document.querySelector('#password')
-		for (var k in user) {
-			console.log(user[k]);
-		}
-		btn.addEventListener('click', (e) => {
-			if ((us.value == user.user1 || us.value == user.user2) && (pasw.value == user.pasw1 || pasw.value == user.pasw2)) {
-				location.href = './xiexi.html'
-			}
-			e.preventDefault();
-		})
-	</script>
-</body>
-
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/icon/logo.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>zhximin</title>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="module" src="/src/main.js"></script>
+	</body>
 </html>
