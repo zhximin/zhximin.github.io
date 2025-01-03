@@ -6,19 +6,18 @@ import store from "@/store";
 import Antd from "ant-design-vue";
 import Vant from "vant";
 
-// 解决dayjs报错问题
-import weekday from "dayjs/plugin/weekday";
-import localeData from "dayjs/plugin/localeData";
-import utc from "dayjs/plugin/utc";
-import timezone from "dayjs/plugin/timezone";
-import dayjs from "dayjs";
-import "@/styles/normalize.css";
+// 国际化插件
+import i18n from "./I18n/index.js";
+
+// 清除标签默认样式
+import "./styles/normalize.css";
+import "./styles/reset.css";
+
+// 导入字体图标
 import "@/assets/index.css";
 
-dayjs.extend(weekday);
-dayjs.extend(localeData);
-dayjs.extend(utc);
-dayjs.extend(timezone);
+// 设置全局样式
+import "./styles/global.scss";
 
 const app = createApp(App);
 
@@ -26,5 +25,6 @@ app.use(Vant);
 app.use(store);
 app.use(router);
 app.use(Antd);
+app.use(i18n);
 
 app.mount("#app");

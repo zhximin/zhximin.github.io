@@ -4,32 +4,23 @@ import Cookie from "js-cookie";
 import { message } from "ant-design-vue";
 import axios from "axios";
 import Login from "@/views/Login/index.vue";
+import Home from "@/views/Home/index.vue";
+import Layout from "@/layout/index.vue";
 
 export const constantRoutes = [
 	{
 		path: "/",
-		redirect: "/login",
-	},
-	{
-		path: "/home",
-		name: "Home",
+		redirect: "/home",
+		component: Layout,
 		children: [
 			{
 				path: "home",
 				name: "Home",
-				// component: Layout,
+				component: Layout,
 				components: {
 					center: () => import("@/views/Home/index.vue"),
 				},
 			},
-			// {
-			// 	path: "tool",
-			// 	name: "Tool",
-			// 	component: Layout,
-			// 	components: {
-			// 		center: () => import("@/views/OperationToolkit/index.vue"),
-			// 	},
-			// },
 		],
 	},
 	{

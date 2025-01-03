@@ -1,0 +1,100 @@
+{
+  "id": "3536357",
+  "name": "2",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "27888845",
+      "name": "薯条",
+      "font_class": "shutiao",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
+      "icon_id": "27922584",
+      "name": "可乐",
+      "font_class": "kele",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
+      "icon_id": "27923659",
+      "name": "汉堡",
+      "font_class": "hanbao",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "28563568",
+      "name": "糯米糍",
+      "font_class": "nuomici",
+      "unicode": "e69f",
+      "unicode_decimal": 59039
+    },
+    {
+      "icon_id": "1505565",
+      "name": "历史",
+      "font_class": "lishi",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "3833187",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "3852291",
+      "name": "订单",
+      "font_class": "dingdan",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "9030999",
+      "name": "喜欢",
+      "font_class": "xihuan",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "10357047",
+      "name": "退出",
+      "font_class": "tuichu",
+      "unicode": "e69e",
+      "unicode_decimal": 59038
+    },
+    {
+      "icon_id": "10583159",
+      "name": "会员",
+      "font_class": "huiyuan",
+      "unicode": "e683",
+      "unicode_decimal": 59011
+    },
+    {
+      "icon_id": "13645031",
+      "name": "主页",
+      "font_class": "zhuye",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "13646873",
+      "name": "提醒",
+      "font_class": "tixing",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "21600658",
+      "name": "朋友圈",
+      "font_class": "pengyouquan",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    }
+  ]
+}

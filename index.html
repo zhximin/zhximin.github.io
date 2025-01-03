@@ -3,9 +3,36 @@
 	<head>
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="/icon/logo.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title>zhximin</title>
+		<script src="/config.js"></script>
 	</head>
+
+	<style>
+		html,
+		body {
+			box-sizing: border-box;
+			height: 100%;
+			width: 100%;
+			margin: 0;
+		}
+
+		*,
+		*::before,
+		*::after {
+			box-sizing: inherit;
+		}
+
+		#app {
+			position: relative;
+			background-color: #f0f0f0;
+			height: 100%;
+			width: 100%;
+		}
+	</style>
+
 	<body>
 		<div id="app"></div>
 		<script type="module" src="/src/main.js"></script>
