@@ -4,6 +4,7 @@ import Cookie from "js-cookie";
 import { message } from "ant-design-vue";
 import axios from "axios";
 import Login from "@/views/Login/index.vue";
+import Clock from "@/views/Clock/index.vue";
 import Home from "@/views/Home/index.vue";
 import Layout from "@/layout/index.vue";
 
@@ -22,6 +23,11 @@ export const constantRoutes = [
 				},
 			},
 		],
+	},
+	{
+		path: "/clock",
+		name: "Clock",
+		component: Clock,
 	},
 	{
 		path: "/login",

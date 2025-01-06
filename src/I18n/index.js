@@ -1,6 +1,7 @@
 import { createI18n } from "vue-i18n";
 import EN from "./en.js";
 import AR from "./ar.js";
+import ZH from "./zh.js";
 // import aboutUsAR from "./aboutUsAR.js";
 // import aboutUsEN from "./aboutUsEN.js";
 const messages = {
@@ -8,6 +9,7 @@ const messages = {
 	en: { ...EN },
 	// ar: { ...AR, ...aboutUsAR },
 	ar: { ...AR },
+	zh: { ...ZH },
 };
 const getLanguage = () => {
 	const defaultLang = localStorage.getItem("lang");
@@ -16,8 +18,10 @@ const getLanguage = () => {
 	}
 	if (navigator.language.split("-")[0].toLocaleLowerCase() === "ar") {
 		return "ar";
-	} else {
+	} else if (navigator.language.split("-")[0].toLocaleLowerCase() === "en") {
 		return "en";
+	} else {
+		return "zh";
 	}
 };
 const i18n = createI18n({
@@ -25,7 +29,7 @@ const i18n = createI18n({
 	globalInjection: true,
 	// locale: 'ar',
 	locale: getLanguage(), // 设置语言
-	fallbackLocale: "en", // 设置备用语言
+	fallbackLocale: "zh", // 设置备用语言
 	messages,
 });
 export default i18n;

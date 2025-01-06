@@ -2,20 +2,23 @@
   <div class="layout" ref="layoutRef">
     <div class="center">
       <div class="user-info">
-        <img :src="`${basePath}/images/avatar.jpg`" class="avatar" width="100" height="100" />
+        <img src="/images/avatar.jpg" class="avatar" width="100" height="100" />
         <div class="user_name">斜曦</div>
         <div class="user_vip">VIP用户</div>
         <div class="user_desc">
-          <p v-if="!isEditing" @click="actions.editSignature">
+          <p v-if="!isEditing" class="signature">
             {{ state.describe || "点击这里修改签名..." }}
+            <EditOutlined @click="actions.editSignature" />
           </p>
           <a-input ref="iptRef" v-else v-model:value="state.describe" placeholder="请输入签名" @blur="actions.saveSignature"
-            @keydown.enter="saveSignature" />
+            @keydown.enter="actions.saveSignature" show-count :maxlength="8" class="signature-input" />
         </div>
       </div>
       <a-menu v-model:selectedKeys="state.selectedKeys" class="menu" mode="inline" @click="handleClick" v-show="showMenu">
         <a-menu-item v-for="item in menuList" :key="item.path" :disabled="item.disabled">
-          <span> <i :class="`iconfont ${item.icon}`"></i>{{ item.label }}</span>
+          <span>
+            <i :class="`iconfont ${item.icon}`"></i>{{ item.label }}
+          </span>
         </a-menu-item>
       </a-menu>
     </div>
@@ -23,115 +26,51 @@
   </div>
 </template>
 
-
 <script setup>
 import { computed, reactive, ref, onMounted, watch, nextTick } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-
+import { EditOutlined } from '@ant-design/icons-vue';
 const state = reactive({
   selectedKeys: ['/home'],
-  describe: "", // 签名内容
+  describe: localStorage.getItem('userSignature') || "", // 签名内容
 });
-const basePath = window.config.basePath;
 
 const router = useRouter();
 const route = useRoute();
 const layoutRef = ref();
 const iptRef = ref();
-const showMenu = computed(() => {
-  // return route.path !== '/account' && route.path !== '/role' && route.path !== '/home';
-  return true
-});
-const isEditing = ref(false); // 是否处于编辑状态
-const selectedIndex = ref(null); // 当前选中的菜单索引
+const showMenu = computed(() => true);
+const isEditing = ref(false);
 
-const menuList = computed(() => {
-  const originList = [
-    {
-      path: '/home',
-      label: '主页',
-      code: 'Home',
-      icon: 'icon-zhuye',
-      disabled: false
-    },
-    {
-      path: '/favorites',
-      label: '我的喜欢',
-      code: 'Favorites',
-      icon: 'icon-xihuan',
-      disabled: false
-    },
-    {
-      path: '/history',
-      label: '浏览历史',
-      code: 'History',
-      icon: 'icon-lishi',
-      disabled: false
-    },
-    {
-      path: '/notifications',
-      label: '我的提醒',
-      code: 'Notifications',
-      icon: 'icon-tixing',
-      disabled: false
-    },
-    {
-      path: '/circle',
-      label: '朋友圈',
-      code: 'Circle',
-      icon: 'icon-pengyouquan',
-      disabled: false
-    },
-    {
-      path: '/membership',
-      label: '积分·会员',
-      code: 'Membership',
-      icon: 'icon-huiyuan',
-      disabled: false
-    },
-    {
-      path: '/orders',
-      label: '我的订单',
-      code: 'Orders',
-      icon: 'icon-dingdan',
-      disabled: false
-    },
-    {
-      path: '/settings',
-      label: '设置',
-      code: 'Settings',
-      icon: 'icon-shezhi',
-      disabled: false
-    },
-    {
-      path: '/logout',
-      label: '退出登录',
-      code: 'Logout',
-      icon: 'icon-tuichu',
-      disabled: false
-    }
-  ]
-  return originList
-});
+const menuList = computed(() => [
+  { path: '/home', label: '主页', icon: 'icon-zhuye', disabled: false },
+  { path: '/favorites', label: '我的喜欢', icon: 'icon-xihuan', disabled: false },
+  { path: '/history', label: '浏览历史', icon: 'icon-lishi', disabled: false },
+  { path: '/notifications', label: '我的提醒', icon: 'icon-tixing', disabled: false },
+  { path: '/circle', label: '朋友圈', icon: 'icon-pengyouquan', disabled: false },
+  { path: '/membership', label: '积分·会员', icon: 'icon-huiyuan', disabled: false },
+  { path: '/orders', label: '我的订单', icon: 'icon-dingdan', disabled: false },
+  { path: '/settings', label: '设置', icon: 'icon-shezhi', disabled: false },
+  { path: '/Login', label: '退出登录', icon: 'icon-tuichu', disabled: false },
+]);
 
 const handleClick = (item) => {
   router.push(item.key);
 };
 
 const actions = {
-  // 切换到编辑状态
   editSignature: () => {
     isEditing.value = true;
-    // 使用 nextTick 等待 DOM 更新完成
     nextTick(() => {
       iptRef.value.focus();
     });
   },
-  // 保存签名并退出编辑状态
   saveSignature: () => {
     isEditing.value = false;
+    localStorage.setItem('userSignature', state.describe);
   },
 };
+
 watch(
   () => route.path,
   (val) => {
@@ -147,19 +86,37 @@ onMounted(() => {
 });
 </script>
 
-
 <style lang="scss" scoped>
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .layout {
   width: 100%;
   height: 100%;
   display: flex;
   overflow: auto;
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1, #84fab0, #8fd3f4);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
 
   .center {
     display: flex;
     overflow: auto;
     flex-direction: column;
     width: 208px;
+    background-color: transparent;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
     .user-info {
       width: 100%;
@@ -168,8 +125,8 @@ onMounted(() => {
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      border-bottom: 1px solid #c5c5c5;
-      background-color: #fff;
+      // border-bottom: 1px solid #c5c5c5;
+      background-color: transparent;
 
       .avatar {
         width: 120px;
@@ -187,20 +144,26 @@ onMounted(() => {
       }
 
       .user_vip {
-        color: #8e8e8e;
+        color: #FFC107;
         margin-bottom: 5px;
       }
 
       .user_desc {
         margin-top: 10px;
 
-        p {
-          cursor: pointer;
+        .signature {
+          height: 30px;
+          display: inline-block;
+          line-height: 30px;
           color: #666;
+          cursor: pointer;
         }
 
-        input {
+        .signature-input {
           width: 100%;
+          height: 30px;
+          background-color: rgba(0, 0, 0, 0.1);
+          border: none;
         }
       }
     }
@@ -208,7 +171,8 @@ onMounted(() => {
     .menu {
       width: 100%;
       flex: 1;
-      box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.1);
+      // box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.1);
+      background-color: transparent;
 
       .iconfont {
         margin-right: 5px;
@@ -216,7 +180,7 @@ onMounted(() => {
 
       ::v-deep(.ant-menu-item-selected) {
         color: #f66;
-        background-color: #ccc;
+        background-color: transparent;
       }
 
       ::v-deep(.ant-menu-item-active) {
@@ -224,10 +188,14 @@ onMounted(() => {
       }
     }
 
+
+
     &-child {
-      padding: 24px;
+      padding: 15px;
       flex: 1;
       max-width: calc(100% - 210px);
+
+      background-color: transparent;
     }
   }
 

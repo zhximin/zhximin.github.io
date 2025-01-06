@@ -1,3 +1,9 @@
 export default {
-	enterPin: "Enter 4-digit PIN",
+	randomCopy: "Random Copy",
+	stats: {
+		calendar: "Calendar",
+		clock: "Clock",
+		photoWall: "Photo Wall",
+		comments: "Total Comments",
+	},
 };
