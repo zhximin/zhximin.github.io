@@ -1,18 +1,15 @@
 <template>
 	<div class="main">
 		<div class="loginBox">
-			<h2 class="title">login</h2>
+			<h2 class="title">Login</h2>
 			<div class="item">
-				<input type="text" class="user-input" v-model="state.userName" required />
-				<label for="username" class="user-text">userName</label>
+				<input type="text" class="user-input" v-model="state.userName" required placeholder="Username" />
 			</div>
 			<div class="item">
-				<input type="password" class="user-input" v-model="state.passWord" required />
-				<label for="password" class="user-text">password</label>
+				<input type="password" class="user-input" v-model="state.passWord" required placeholder="Password" />
 			</div>
-			<button class="btn" ref="submitRef" @click.prevent="actions.handleClick">
-				submit
-				<!-- 流动的条 -->
+			<button class="btn" @click.prevent="handleLogin">
+				Submit
 				<span class="line1 line"></span>
 				<span class="line2 line"></span>
 				<span class="line3 line"></span>
@@ -23,28 +20,34 @@
 </template>
 
 <script setup>
-import { computed, reactive, ref, watch, nextTick, inject, onMounted } from "vue";
+import { reactive } from "vue";
 import { useRouter } from "vue-router";
+import { message } from "ant-design-vue";
 
 const router = useRouter();
+
+// 表单状态
 const state = reactive({
 	userName: "",
 	passWord: "",
 });
 
-const submitRef = ref(null);
-
+// 用户信息模拟
 const user = {
 	userName: "xiexi",
 	passWord: "1511",
 };
 
-const actions = {
-	handleClick() {
-		if (state.userName == user.userName && state.passWord == user.passWord) {
-			router.push("/home");
-		}
-	},
+// 登录处理
+const handleLogin = () => {
+	if (state.userName === user.userName && state.passWord === user.passWord) {
+		// 存储 token
+		localStorage.setItem("token", "123");
+		message.success("Login successful!");
+		router.push("/home");
+	} else {
+		message.error("Invalid username or password.");
+	}
 };
 </script>
 
@@ -58,6 +61,7 @@ const actions = {
 	align-items: center;
 	font-size: 16px;
 	color: #03e9f4;
+
 	.loginBox {
 		width: 400px;
 		height: 364px;
@@ -67,87 +71,54 @@ const actions = {
 		box-shadow: 0 15px 25px 0 rgba(0, 0, 0, 0.6);
 		padding: 40px;
 		box-sizing: border-box;
+
 		.title {
 			text-align: center;
 			color: #20a3aa;
 			margin-bottom: 30px;
 			font-family: "Courier New", Courier, monospace;
 		}
+
 		.item {
 			height: 45px;
-			border-bottom: 1px solid #fff;
 			margin-bottom: 40px;
 			position: relative;
+
 			.user-input {
 				width: 100%;
 				height: 100%;
 				color: #fff;
-				padding-top: 20px;
-				box-sizing: border-box;
+				padding: 10px;
 				background: transparent;
-				border: 0;
+				border: 1px solid #fff;
+				border-radius: 5px;
 				outline: none;
-			}
-			.user-text {
-				position: absolute;
-				left: 0;
-				top: 12px;
-				transition: all 0.5s linear;
-			}
-			// 同一级的input和label
-			.user-input:focus + .user-text,
-			.user-input:valid + .user-text {
-				top: 0px;
-				font-size: 2px;
+
+				&::placeholder {
+					color: #aaa;
+				}
 			}
 		}
 
 		.btn {
 			padding: 10px 20px;
-			margin-top: 30px;
 			color: #20a3aa;
-			position: relative;
-			overflow: hidden;
 			text-transform: uppercase;
 			letter-spacing: 2px;
-			left: 35%;
+			position: relative;
 			background: transparent;
 			border: 0;
 			outline: none;
+			cursor: pointer;
+
 			&:hover {
-				border-radius: 5px;
 				color: #fff;
 				background: #20a3aa;
+				border-radius: 5px;
 				box-shadow: 0 0 5px 0 #20a3aa, 0 0 25px 0 #20a3aa, 0 0 50px 0 #20a3aa, 0 0 100px 0 #20a3aa;
 				transition: all 1s linear;
 			}
-			@keyframes line1-animation {
-				50%,
-				100% {
-					left: 100%;
-				}
-			}
 
-			@keyframes line2-animation {
-				50%,
-				100% {
-					top: 100%;
-				}
-			}
-
-			@keyframes line3-animation {
-				50%,
-				100% {
-					left: -100%;
-				}
-			}
-
-			@keyframes line4-animation {
-				50%,
-				100% {
-					top: -100%;
-				}
-			}
 			.line {
 				position: absolute;
 			}
@@ -155,34 +126,37 @@ const actions = {
 			.line1 {
 				width: 100%;
 				height: 2px;
-				background: -webkit-linear-gradient(left, transparent, #03e9f4);
+				background: linear-gradient(to right, transparent, #03e9f4);
+				top: 0;
 				left: -100%;
-				top: 0px;
 				animation: line1-animation 1s linear infinite;
 			}
+
 			.line2 {
 				width: 2px;
 				height: 100%;
-				background: -webkit-linear-gradient(top, transparent, #03e9f4);
-				right: 0px;
+				background: linear-gradient(to bottom, transparent, #03e9f4);
 				top: -100%;
+				right: 0;
 				animation: line2-animation 1s 0.25s linear infinite;
 			}
+
 			.line3 {
 				width: 100%;
 				height: 2px;
-				background: -webkit-linear-gradient(left, #03e9f4, transparent);
+				background: linear-gradient(to left, #03e9f4, transparent);
+				bottom: 0;
 				left: 100%;
-				bottom: 0px;
-				animation: line3-animation 1s 0.75s linear infinite;
+				animation: line3-animation 1s 0.5s linear infinite;
 			}
+
 			.line4 {
 				width: 2px;
 				height: 100%;
-				background: -webkit-linear-gradient(top, transparent, #03e9f4);
-				left: 0px;
+				background: linear-gradient(to top, #03e9f4, transparent);
 				top: 100%;
-				animation: line4-animation 1s 1s linear infinite;
+				left: 0;
+				animation: line4-animation 1s 0.75s linear infinite;
 			}
 		}
 	}

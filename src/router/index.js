@@ -1,8 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
-import Cookie from "js-cookie";
-import { message } from "ant-design-vue";
-import axios from "axios";
 import Login from "@/views/Login/index.vue";
 import Clock from "@/views/Clock/index.vue";
 import Home from "@/views/Home/index.vue";
@@ -41,32 +38,22 @@ const router = createRouter({
 	routes: constantRoutes,
 });
 
-// const versionCheck = async () => {
-//   const response = await axios.get('version.json')
-//   if (!response || !response.data) return;
-//   console.info(__APP_VERSION__, response.data, 'version compare')
-//   if (__APP_VERSION__ !== response.data.version) {
-//     message.info('Page updated. Will reload the latest page in 3 seconds...')
-//     setTimeout(() => {
-//       window.location.reload()
-//     }, 3000);
-//   }
-// }
+// 添加路由守卫
+router.beforeEach((to, from, next) => {
+	const token = localStorage.getItem("token");
 
-// router.beforeEach(async (to, from, next) => {
-//   await versionCheck();
-//   const whiteList = ['/login'];
-//   if (!whiteList.includes(to.path)) {
-//     if (!Cookie.get('token')) {
-//       next({
-//         path: '/login'
-//       });
-//     } else {
-//       next();
-//     }
-//   } else {
-//     next();
-//   }
-// });
+	// 如果未登录且目标路由不是登录页，跳转到登录页
+	if (token !== "3208" && to.path !== "/login") {
+		next({ path: "/login" });
+	}
+	// 如果已登录且目标是登录页，跳转到主页
+	else if (token === "3208" && to.path === "/login") {
+		next({ path: "/home" });
+	}
+	// 其他情况放行
+	else {
+		next();
+	}
+});
 
 export default router;
