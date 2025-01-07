@@ -56,7 +56,11 @@ const menuList = computed(() => [
 ]);
 
 const handleClick = (item) => {
+  if (item.path === '/Login') {
+    localStorage.removeItem('token');
+  }
   router.push(item.key);
+
 };
 
 const actions = {

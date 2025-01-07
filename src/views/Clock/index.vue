@@ -1,60 +1,67 @@
 <template>
     <div class="container">
         <div class="watch">
+            <!-- 表盘数字 -->
             <div v-for="num in digits" :key="num" :style="getDigitStyle(num)" class="digit">
                 <span>{{ num }}</span>
             </div>
+            <!-- 米老鼠和指针 -->
             <div class="mickey"></div>
-            <div :class="hoursClass" class="hours"></div>
-            <div :class="minutesClass" class="minutes"></div>
+            <div ref="hoursHand" class="hours" :style="getRotationStyle(hoursDeg)"></div>
+            <div ref="minutesHand" class="minutes" :style="getRotationStyle(minutesDeg)"></div>
         </div>
+        <LeftOutlined class="back-icon" @click="handleBack" />
     </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { LeftOutlined } from '@ant-design/icons-vue';
+import { useRouter } from 'vue-router';
+import moment from 'moment';
 
+// 数字表盘
 const digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const router = useRouter();
 
-const hoursClass = ref('left');
-const minutesClass = ref('back left');
+// 指针角度
+const hoursDeg = ref(0);
+const minutesDeg = ref(0);
 
-onMounted(() => {
-    setInterval(() => {
-        const hours = new Date().getHours();
-        const minutes = new Date().getMinutes();
-
-        hoursClass.value = hours >= 6 && hours < 12 ? 'left' : 'right';
-        minutesClass.value = minutes <= 30 ? 'back left' : 'left';
-
-        setRotation('hours', 30 * hours);
-        setRotation('minutes', 6 * minutes);
-    }, 500);
-});
-
+// 表盘数字样式
 const getDigitStyle = (num) => {
-    const rotation = (360 / 12) * num; // 360 degrees divided by 12 hours
+    const rotation = (360 / 12) * num; // 每个数字旋转的角度
     return {
         transform: `rotate(${rotation}deg)`,
     };
 };
 
-const setRotation = (elmt, deg) => {
-    const element = document.querySelector(`.${elmt}`);
+// 计算指针旋转样式
+const getRotationStyle = (deg) => ({
+    transform: `rotate(${deg}deg)`,
+});
 
-    if (elmt === 'hours' && deg < 180) {
-        deg = deg - 5;
-    }
-
-    if (elmt === 'minutes' && deg < 180) {
-        deg = deg + 5;
-    } else {
-        deg = deg - 5;
-    }
-
-    element.style.transform = `rotate(${deg}deg)`;
-    element.style.webkitTransform = `rotate(${deg}deg)`;
+// 返回上一级路由
+const handleBack = () => {
+    router.back();
 };
+
+// 更新时针和分针角度
+const updateClock = () => {
+    const now = moment();
+    const hours = now.hours();
+    const minutes = now.minutes();
+
+    // 计算时针和分针的角度
+    hoursDeg.value = (hours % 12) * 30 + (minutes / 60) * 30; // 时针每小时30度，加分钟进度
+    minutesDeg.value = minutes * 6; // 分针每分钟6度
+};
+
+// 初始化并设置定时器
+onMounted(() => {
+    updateClock(); // 初始化时钟
+    setInterval(updateClock, 1000); // 每秒更新一次
+});
 </script>
 
 <style scoped lang="scss">
@@ -88,7 +95,17 @@ const setRotation = (elmt, deg) => {
             }
         }
 
-        .mickey,
+        .mickey {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url("/images/svg/body.svg");
+            background-size: 70%;
+            background-position: 45% 85%;
+            z-index: 50;
+            background-repeat: no-repeat;
+        }
+
         .hours,
         .minutes {
             position: absolute;
@@ -96,71 +113,32 @@ const setRotation = (elmt, deg) => {
             height: 100%;
             background: no-repeat center center;
             background-size: contain;
-        }
+            transition: transform 0.5s ease-in-out;
 
-        .mickey {
-            background-size: 70%;
-            background-position: 45% 85%;
-            z-index: 50;
-        }
-
-        .hours,
-        .minutes {
-            width: 100%;
-            height: 100%;
-            background: no-repeat top center;
-            background-size: 90px;
-            background-position: center 5%;
-            transition: transform 1s;
-        }
-
-        .hours {
-            z-index: 10;
-        }
-
-        .minutes {
-            z-index: 100;
-        }
-
-        .minutes::after {
-            content: '';
-            display: block;
-            animation: seconds infinite 1s;
-        }
-
-        @keyframes seconds {
-            0% {
-                transform: scale(1);
+            &.hours {
+                background-image: url("/images/svg/hand2.svg");
+                background-size: 90px;
+                background-position: center 5%;
+                z-index: 100;
             }
 
-            50% {
-                transform: scale(0.95);
+            &.minutes {
+                background-image: url("/images/svg/hand3.svg");
+                background-size: 90px;
+                background-position: center 5%;
+                z-index: 10;
             }
-
-            100% {
-                transform: scale(1);
-            }
         }
+    }
 
-        /* Sprites */
-        .mickey {
-            background-image: url("/images/svg/body.svg");
-        }
-
-        .hours.right,
-        .minutes.right::after {
-            background-image: url("/images/svg/hand3.svg") !important;
-        }
-
-        .hours.left.back,
-        .minutes.left.back::after {
-            background-image: url("/images/svg/hand1.svg") !important;
-        }
-
-        .hours.left,
-        .minutes.left::after {
-            background-image: url("/images/svg/hand2.svg") !important;
-        }
+    .back-icon {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 50px;
+        z-index: 9;
+        color: #fff;
+        cursor: pointer;
     }
 }
 </style>

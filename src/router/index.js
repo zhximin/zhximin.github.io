@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 
 import Login from "@/views/Login/index.vue";
 import Clock from "@/views/Clock/index.vue";
+import PhotoWall from "@/views/PhotoWall/index.vue";
 import Home from "@/views/Home/index.vue";
 import Layout from "@/layout/index.vue";
 
@@ -25,6 +26,11 @@ export const constantRoutes = [
 		path: "/clock",
 		name: "Clock",
 		component: Clock,
+	},
+	{
+		path: "/photoWall",
+		name: "PhotoWall",
+		component: PhotoWall,
 	},
 	{
 		path: "/login",

@@ -1,4 +1,3 @@
-# 将静态内容部署到 GitHub Pages 的简易工作流程
 name: Deploy static content to Pages
 
 on:
@@ -11,41 +10,40 @@ on:
 
 # 设置 GITHUB_TOKEN 的权限，以允许部署到 GitHub Pages。
 permissions:
- contents: read
- pages: write
- id-token: write
+ contents: read # 允许读取代码库内容
+ pages: write # 允许将内容部署到 GitHub Pages
+ id-token: write # 允许生成身份验证令牌
 
 # 允许一个并发的部署
 concurrency:
- group: "pages"
- cancel-in-progress: true
+ group: "pages" # 部署任务的组名称，确保同一时间只有一个部署
+ cancel-in-progress: true # 如果有新的部署任务，取消当前正在进行的部署任务
 
 jobs:
  # 单次部署的工作描述
  deploy:
   environment:
-   name: github-pages
-   url: ${{ steps.deployment.outputs.page_url }}
-  runs-on: ubuntu-latest
+   name: github-pages # 部署环境的名称
+   url: ${{ steps.deployment.outputs.page_url }} # 部署完成后获取的 GitHub Pages URL
+  runs-on: ubuntu-latest # 设置部署环境为最新版本的 Ubuntu
   steps:
    - name: Checkout
-     uses: actions/checkout@v3
+     uses: actions/checkout@v3 # 使用 GitHub 提供的 Action 检出代码库
    - name: Set up Node
-     uses: actions/setup-node@v3
+     uses: actions/setup-node@v3 # 设置 Node.js 环境
      with:
       node-version: "20" # 指定 Node.js 版本
-      cache: "yarn"
+      cache: "yarn" # 启用 yarn 缓存，以加速依赖安装
    - name: Install dependencies
-     run: yarn install --frozen-lockfile
+     run: yarn install --frozen-lockfile # 安装项目依赖，确保 yarn.lock 文件不被修改
    - name: Build
-     run: yarn build
+     run: yarn build # 构建项目，生成静态文件到 dist 目录
    - name: Setup Pages
-     uses: actions/configure-pages@v3
+     uses: actions/configure-pages@v3 # 配置 GitHub Pages 部署
    - name: Upload artifact
-     uses: actions/upload-pages-artifact@v1
+     uses: actions/upload-pages-artifact@v1 # 上传构建的静态文件
      with:
-      # Upload dist repository
-      path: "./dist"
+      path: "./dist" # 指定上传的目录为 dist
    - name: Deploy to GitHub Pages
      id: deployment
-     uses: actions/deploy-pages@v1
+     uses: actions/deploy-pages@v1 # 部署静态文件到 GitHub Pages
