@@ -8,7 +8,7 @@ function resolve(dir) {
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [vue()],
-	// base: "/",
+	base: "./",
 	hmr: true, //热更新
 	server: {
 		host: "0.0.0.0", // 默认是 localhost 如果允许外部访问，可设置为"0.0.0.0"
