@@ -3,10 +3,11 @@
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
+	"_build": "vite build && node zip-dist.cjs  打包后删除dist然后压缩",
 	"scripts": {
 		"dev": "vite",
 		"preview": "vite preview",
-		"build": "vite build && node zip-dist.cjs"
+		"build": "vite build"
 	},
 	"dependencies": {
 		"ant-design-vue": "^4.0.0",
