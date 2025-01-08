@@ -12,7 +12,7 @@ import moment from "moment";
 import { useI18n } from "vue-i18n";
 import enUS from "ant-design-vue/es/locale/en_US";
 import arEG from "ant-design-vue/es/locale/ar_EG";
-
+import zhCN from 'ant-design-vue/es/locale/zh_CN';
 const I18n = useI18n();
 
 const lang = computed(() => {
@@ -28,14 +28,19 @@ const antdLang = computed(() => {
 		case "ar": {
 			return arEG;
 		}
+		case "zh": {
+			return zhCN;
+		}
 	}
+	momentDefault(I18n.locale.value)
+
 });
 
 const setMomentLocale = (locale) => {
 	moment.locale(locale); // 设置 moment 的语言环境
 };
 
-const dayjsDefault = () => {
+const momentDefault = () => {
 	switch (I18n.locale.value) {
 		case "en": {
 			setMomentLocale("en"); // 设置 moment 为英语

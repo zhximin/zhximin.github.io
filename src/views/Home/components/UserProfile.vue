@@ -79,7 +79,6 @@ onMounted(generateRandomTexts);
 watch(() => locale.value, updateDisplayedTexts);
 
 const userStats = ref([
-    { label: 'stats.calendar', icon: 'iconfont icon-hanbao', route: '/calendar' },
     { label: 'stats.clock', icon: 'iconfont icon-kele', route: '/clock' },
     { label: 'stats.photoWall', icon: 'iconfont icon-shutiao', route: '/photoWall' },
     { label: 'stats.comments', icon: 'iconfont icon-nuomici', route: '/comments', isCommentCount: true },
