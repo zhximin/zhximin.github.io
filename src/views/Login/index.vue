@@ -3,16 +3,17 @@
 		<div class="loginBox">
 			<h2 class="title">login</h2>
 			<div class="item">
-				<input type="text" class="user-input" v-model="state.userName" required />
-				<label for="username" class="user-text">userName</label>
+				<input type="text" class="user-input" v-model="state.userName" required autocomplete="new-username"
+					@keydown.enter="actions.handleClick" />
+				<div for="username" class="user-text">userName</div>
 			</div>
 			<div class="item">
-				<input type="password" class="user-input" v-model="state.passWord" required />
-				<label for="password" class="user-text">password</label>
+				<input type="password" class="user-input" v-model="state.passWord" required autocomplete="new-password"
+					@keydown.enter="actions.handleClick" />
+				<div for="password" class="user-text">password</div>
 			</div>
 			<button class="btn" ref="submitRef" @click.prevent="actions.handleClick">
 				submit
-				<!-- 流动的条 -->
 				<span class="line1 line"></span>
 				<span class="line2 line"></span>
 				<span class="line3 line"></span>
@@ -23,7 +24,7 @@
 </template>
 
 <script setup>
-import { computed, reactive, ref, watch, nextTick, inject, onMounted } from "vue";
+import { reactive, ref, nextTick } from "vue";
 import { useRouter } from "vue-router";
 import { message } from "ant-design-vue";
 
@@ -33,8 +34,6 @@ const state = reactive({
 	passWord: "",
 });
 
-const submitRef = ref(null);
-
 const user = {
 	userName: "xiexi",
 	passWord: "1511",
@@ -42,20 +41,24 @@ const user = {
 
 const actions = {
 	handleClick() {
+		// 检查是否为空
+		if (!state.userName.trim() || !state.passWord.trim()) {
+			message.error("Please fill in both username and password.");
+			return;
+		}
+		// 校验用户名和密码
 		if (state.userName === user.userName && state.passWord === user.passWord) {
-			// 存储 token
 			localStorage.setItem("token", "3208");
 			message.success("Login successful!");
 			nextTick(() => {
 				router.push("/home");
-			})
+			});
 		} else {
 			message.error("Invalid username or password.");
 		}
 	},
 };
 </script>
-
 <style scoped lang="scss">
 .main {
 	width: 100%;
@@ -112,7 +115,7 @@ const actions = {
 			.user-input:focus+.user-text,
 			.user-input:valid+.user-text {
 				top: 0px;
-				font-size: 2px;
+				font-size: 8px;
 			}
 		}
 
