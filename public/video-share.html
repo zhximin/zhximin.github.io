@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>MEGA SELFIE - WARNER BROS. ABU DHABI</title>
+
+		<!-- 注意：Facebook 抓取meta不会执行JS，这里写死一个默认封面和视频 -->
+		<meta property="og:type" content="video.other" />
+		<!-- <meta property="og:url" content="https://10.9.100.5:5001/mega-selfie/selfies/video-share.html" /> -->
+		<meta
+			property="og:title"
+			content="How cool is this cool Mega selfie video l got at Warner Bros.World Abu Dhabi! #WBYaslsland #MegaSelfie" />
+		<meta property="og:description" content="Experience the Mega Selfie at Warner Bros. Abu Dhabi!" />
+		<!-- <meta property="og:image" content="https://yourdomain.com/path/to/default-cover.jpg" /> -->
+		<meta
+			property="og:image"
+			content="https://fastly.picsum.photos/id/584/200/200.jpg?hmac=3Qi-TuGGtoLhS0BSlFSLhp1fwexJGdcQ0IWuRa-QXnM" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<!-- <meta property="og:video" content="https://yourdomain.com/path/to/default-video.mp4" /> -->
+		<meta property="og:video" content="http://vjs.zencdn.net/v/oceans.mp4" />
+		<meta property="og:video:type" content="video/mp4" />
+		<meta property="og:video:width" content="720" />
+		<meta property="og:video:height" content="1280" />
+
+		<style>
+			body {
+				margin: 0;
+				background: #000;
+				color: #fff;
+				font-family: Arial, sans-serif;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				min-height: 100vh;
+				padding: 20px;
+				text-align: center;
+			}
+			video {
+				max-width: 400px;
+				width: 100%;
+				height: auto;
+				background: #000;
+			}
+			.caption {
+				margin-top: 20px;
+				font-weight: bold;
+				font-size: 18px;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				line-height: 1.4;
+			}
+		</style>
+	</head>
+	<body>
+		<video controls playsinline muted autoplay>
+			<source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
+			Your browser does not support the video tag.
+		</video>
+
+		<div class="caption">
+			MEGA SELFIE<br />
+			WARNER BROS. ABU DHABI
+		</div>
+	</body>
+</html>
