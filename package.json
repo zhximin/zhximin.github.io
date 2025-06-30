@@ -7,7 +7,8 @@
 	"scripts": {
 		"dev": "vite",
 		"preview": "vite preview",
-		"build": "vite build"
+		"build": "vite build",
+		"dist": "vite build && node zip-dist.cjs"
 	},
 	"dependencies": {
 		"ant-design-vue": "^4.0.0",
