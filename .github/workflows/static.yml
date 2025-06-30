@@ -46,4 +46,4 @@ jobs:
       path: "./dist" # 指定上传的目录为 dist
    - name: Deploy to GitHub Pages
      id: deployment
-     uses: actions/deploy-pages@v1 # 部署静态文件到 GitHub Pages
+     uses: actions/deploy-pages@v2 # 部署静态文件到 GitHub Pages
