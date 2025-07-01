@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>MEGA SELFIE - WARNER BROS. ABU DHABI</title>
+		<title>MegaSelfies</title>
 
 		<!-- 注意：Facebook 抓取meta不会执行JS，这里写死一个默认封面和视频 -->
 		<meta property="og:type" content="video.other" />
@@ -14,12 +14,9 @@
 		<meta
 			property="og:description"
 			content="How cool is this cool Mega selfie video l got at Warner Bros.World Abu Dhabi! #WBYaslsland #MegaSelfie" />
-		<meta
-			property="og:image"
-			content="https://fastly.picsum.photos/id/584/200/200.jpg?hmac=3Qi-TuGGtoLhS0BSlFSLhp1fwexJGdcQ0IWuRa-QXnM" />
+
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
-		<meta property="og:url" content="https://yourdomain.com/share/805a3dea" />
 
 		<!-- 如果你还有视频 meta -->
 		<!-- <meta property="og:video" content="https://yourdomain.com/path/to/video.mp4" />
@@ -32,12 +29,28 @@
 		<meta
 			name="twitter:description"
 			content="How cool is this cool Mega selfie video l got at Warner Bros.World Abu Dhabi! #WBYaslsland #MegaSelfie" />
+		<meta name="twitter:image:width" content="1200" />
+		<meta name="twitter:image:height" content="630" />
+
+		<!-- 封面的路径 -->
+		<meta
+			property="og:image"
+			content="https://fastly.picsum.photos/id/584/200/200.jpg?hmac=3Qi-TuGGtoLhS0BSlFSLhp1fwexJGdcQ0IWuRa-QXnM" />
+
 		<meta
 			name="twitter:image"
 			content="https://fastly.picsum.photos/id/584/200/200.jpg?hmac=3Qi-TuGGtoLhS0BSlFSLhp1fwexJGdcQ0IWuRa-QXnM" />
-		<meta name="twitter:image:width" content="1200" />
-		<meta name="twitter:image:height" content="630" />
-		<meta name="twitter:url" content="https://yourdomain.com/share/805a3dea" />
+
+		<!-- url标识 -->
+		<meta property="og:url" content="https://yourdomain.com/share/{gigaid}" />
+		<meta name="twitter:url" content="https://yourdomain.com/share/{gigaid}" />
+
+		<!-- JS -->
+		<script>
+			// look this wuqixin
+			location.href = `{ip地址}/#/copyLink?gigaId={xxxx}`;
+		</script>
+
 		<style>
 			body {
 				margin: 0;
