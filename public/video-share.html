@@ -3,64 +3,105 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>MegaSelfies</title>
+		<title>MEGA SELFIE - WARNER BROS. ABU DHABI</title>
 
-		<!-- Open Graph for Facebook -->
+		<!-- 注意：Facebook 抓取meta不会执行JS，这里写死一个默认封面和视频 -->
 		<meta property="og:type" content="video.other" />
-		<meta property="og:title" content="MEGA SELFIE - WARNER BROS. ABU DHABI" />
+		<!-- <meta property="og:url" content="https://10.9.100.5:5001/mega-selfie/selfies/video-share.html" /> -->
+		<meta
+			property="og:title"
+			content="How cool is this cool Mega selfie video l got at Warner Bros.World Abu Dhabi! #WBYaslsland #MegaSelfie" />
+		<!-- <meta property="og:image" content="https://yourdomain.com/path/to/default-cover.jpg" /> -->
+		<!-- <meta
+			property="og:image"
+			content="https://fastly.picsum.photos/id/584/200/200.jpg?hmac=3Qi-TuGGtoLhS0BSlFSLhp1fwexJGdcQ0IWuRa-QXnM" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" /> -->
+
+		  
+		<!-- Open Graph 协议 -->
+		  
+		<meta property="og:title" content="MEGA SELFIE WARNER BROTS. ABU DHABI" />
 		<meta
 			property="og:description"
-			content="How cool is this cool Mega selfie video I got at Warner Bros. World Abu Dhabi! #WBYasIsland #MegaSelfie" />
-
-		<!-- look 这里 启鑫 -->
+			content="How cool is this cool Mega selfie video l got at Warner Bros.World Abu Dhabi! #WBYaslsland #MegaSelfie" />
+		     
+		<meta property="og:image:width" content="375" />
+		  
+		<meta property="og:image:height" content="193" />
+		  
+		<!-- facebook卡片封面图片 -->
+		<!-- <meta property="og:image" content="https://172.20.26.238/miral/media/giga.image/20250117/805a3dea52334161a983a40b9204345c/test_small.jpg" /> -->
 		<meta
 			property="og:image"
 			content="https://fastly.picsum.photos/id/584/200/200.jpg?hmac=3Qi-TuGGtoLhS0BSlFSLhp1fwexJGdcQ0IWuRa-QXnM" />
+		  
+		<meta
+			property="og:video"
+			content="https://172.20.26.238/miral/media/miral.image/test0120250624/1937337053356232705/output_1.mp4" />
+		<meta property="og:video:type" content="video/mp4" />
+		<meta property="og:video:width" content="720" />
+		<meta property="og:video:height" content="1280" />
+		<meta
+			property="og:url"
+			content="https://10.9.100.5:5001/mega-selfie/selfies/#/copyLink?gigaId=805a3dea52334161a983a40b9204345c" />
 
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
-
-		<!-- Twitter Card -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="MEGA SELFIE - WARNER BROS. ABU DHABI" />
+		<!---------------------------------------------------- Twitter Cards ---------------------------------------------------->
+		  
+		<meta name="twitter:card" content="summary" />
+		  
+		<meta name="twitter:title" content="MEGA SELFIE WARNER BROTS. ABU DHABI" />
+		  
 		<meta
 			name="twitter:description"
-			content="How cool is this cool Mega selfie video I got at Warner Bros. World Abu Dhabi! #WBYasIsland #MegaSelfie" />
-
-		<!-- look 这里 启鑫 -->
+			content="How cool is this cool Mega selfie video l got at Warner Bros.World Abu Dhabi! #WBYaslsland #MegaSelfie" />
+		  
+		<meta property="twitter:image:width" content="375" />
+		  
+		<meta property="twitter:image:height" content="193" />
+		  
+		<!-- 小蓝鸟卡片封面图片 -->
+		<!-- <meta name="twitter:image" content="https://172.20.26.238/miral/media/giga.image/20250117/805a3dea52334161a983a40b9204345c/test_small.jpg" /> -->
+		<meta
+			name="twitter:image"
+			content="https://fastly.picsum.photos/id/584/200/200.jpg?hmac=3Qi-TuGGtoLhS0BSlFSLhp1fwexJGdcQ0IWuRa-QXnM" />
 		<meta
 			property="twitter:image"
 			content="https://fastly.picsum.photos/id/584/200/200.jpg?hmac=3Qi-TuGGtoLhS0BSlFSLhp1fwexJGdcQ0IWuRa-QXnM" />
+		  
+		<meta
+			name="twitter:url"
+			content="https://10.9.100.5:5001/mega-selfie/selfies/#/copyLink?gigaId=805a3dea52334161a983a40b9204345c" />
 
-		<!-- JS -->
-		<script>
-			// look 这里 启鑫  拼个gigaId跳转到我们的项目
-			const params = new URLSearchParams(location.search);
-			const gigaId = params.get("gigaId");
-			if (gigaId) {
-				location.href = `/#/copyLink?gigaId=${gigaId}`;
-			}
-		</script>
-
-		<!-- CSS -->
 		<style>
 			body {
+				margin: 0;
 				background: #000;
 				color: #fff;
 				font-family: Arial, sans-serif;
 				display: flex;
+				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-				height: 100vh;
+				min-height: 100vh;
+				padding: 20px;
 				text-align: center;
 			}
-			.fallback {
-				font-size: 16px;
+			video {
+				max-width: 400px;
+				width: 100%;
+				height: auto;
+				background: #000;
+			}
+			.caption {
+				margin-top: 20px;
+				font-weight: bold;
+				font-size: 18px;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				line-height: 1.4;
 			}
 		</style>
 	</head>
-
-	<body>
-		<div class="fallback"></div>
-	</body>
+	<body></body>
 </html>
